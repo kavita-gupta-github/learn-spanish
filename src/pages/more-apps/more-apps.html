@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>More Apps</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="more-apps">
+  <div cards>
+    <div class="grid-full">
+      <ion-row>
+        <ion-col *ngFor="let record of moreAppsData | FilterPipe: queryString">
+          <ion-card>
+            <div (click)="gotoPage(record.link)">
+              <img src="assets/img/more-apps/{{record.imageName}}.png" />
+              <h1 orange>{{record.name}}</h1>
+              <!-- <p> {{record.description}}</p> -->
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

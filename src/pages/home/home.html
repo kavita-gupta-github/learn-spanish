@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="light" hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title tit-center>Learn Spanish</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="card-background-page">
+  
+  <div *ngIf="present == 0" class="sppiner">
+    <ion-spinner name="bubbles"></ion-spinner>
+  </div>
+  <div *ngIf="present == 1">
+    <ion-toolbar>
+      <ion-searchbar autocomplete="on" color="danger" [(ngModel)]="queryString" [showCancelButton]="shouldShowCancel">
+      </ion-searchbar>
+    </ion-toolbar>
+    <div *ngFor="let name of sheetName | FilterPipe: queryString">
+      <ion-card (click)="PushSingleCategory(name)">
+        <img src="assets/img/{{name}}.png"/>
+        <div class="card-title">{{name}}</div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

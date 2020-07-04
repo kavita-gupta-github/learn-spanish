@@ -1,0 +1,20 @@
+<ion-header>
+</ion-header>
+<ion-content class="tutorial-page">
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides" style="background-color: orange;">
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+      <button ion-button large clear icon-end color="primary" (click)="test();">Skip</button>
+    </ion-slide>
+    <ion-slide style="background-color: orange;">
+      <img src="assets/img/s13.png" class="slide-image"/>
+      <h2 class="slide-title">Ready to Learn?</h2>
+      <button ion-button large clear icon-end color="primary" (click)="test();">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

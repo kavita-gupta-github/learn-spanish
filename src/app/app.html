@@ -1,0 +1,31 @@
+<ion-menu [content]="content" persistent="true" class="menu-wrapper">
+  <ion-header class="two">
+    <ion-toolbar color="primary" class="test three" >
+      <img alt="logo" height="100px" src="assets/img/s12.png" >
+      <ion-title class="toolbar-title_custom">Learn Tigrinya</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="four">
+    <ion-list class="five">
+      <button color="light" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon [name]="p.icon" style="color: orange"></ion-icon>  {{p.title}}
+      </button>
+      <button color="light" menuClose ion-item (click)="halt();">
+        <ion-icon name="exit" style="color: orange"></ion-icon>  Exit
+      </button>
+    </ion-list>
+    <hr />
+    <ion-list >
+      <button color="light" menuClose ion-item (click)="share()">
+        <ion-icon name="link" style="color: orange"></ion-icon>Share
+      </button>
+    </ion-list>
+    <p class="copyright">&copy;	All Rights Reseved</p>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+ 

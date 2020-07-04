@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title>{{parameter}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="present == 0" class="sppiner">
+    <ion-spinner name="bubbles"></ion-spinner>
+  </div>
+  
+  <div *ngIf="present == 1" >
+    <ion-list>
+      <ion-item>
+        English / <br />  Spanish 
+        <span style="float: right; margin-right: 5px;">
+          <ion-icon name="musical-notes" style="color: #d03e84"></ion-icon> Audio</span>
+      </ion-item>
+      <ion-item *ngFor="let list of listings">
+        <div>{{list.English}} /   <br />
+          <span [ngClass]="{'spanish-text': isListen == true && listenId == list.ID}" >{{list.Spanish}}</span>
+          <button style="float: right;" ion-button (click)="music(list.ID, parameter);">
+            <span>Listen</span>
+          </button> 
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
